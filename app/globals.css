@@ -9,10 +9,10 @@
   /* Combine ALL :root variables here */
   :root {
     /* V0 Custom Variables */
-    --primary-dark: #2b2d42; /* Note: Tailwind won't use this unless configured */
-    --accent-red: #ff6b6b;   /* Note: Tailwind won't use this unless configured */
-    --accent-teal: #4ecdc4;  /* Note: Tailwind won't use this unless configured */
-    --accent-yellow: #ffe66d;/* Note: Tailwind won't use this unless configured */
+    --primary-dark: #4A4A4A; /* Updated */
+    --accent-red: #FF8A8A;   /* Updated */
+    --accent-teal: #8FD3C7;  /* Updated */
+    --accent-yellow: #FFD6A5;/* Updated */
     --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Note: Tailwind won't use this unless configured */
 
     /* Shadcn/ui HSL Variables (used by tailwind.config.ts) */
@@ -62,7 +62,7 @@
 /* Print styles (keep as is) */
 @media print {
   @page {
-    size: letter portrait;
+    size: letter landscape;
     margin: 0.5in;
   }
 
@@ -78,24 +78,79 @@
   }
 
   .print-slide {
-    page-break-after: always;
     position: relative;
-    height: 10.5in;
+    height: auto;
+    min-height: 7.5in;
     padding: 0.5in;
-    border: 1px solid #eaeaea;
-    margin-bottom: 0.5in;
+    break-after: page;
+    page-break-after: always;
   }
 
   .print-page-number {
     position: absolute;
-    bottom: 0.25in;
-    right: 0.25in;
-    font-size: 12px;
+    bottom: 0.1in;
+    right: 0.1in;
+    font-size: 10px;
     color: #666;
   }
 
   .print-header,
   .print-footer {
     width: 100%;
+  }
+
+  /* Hide decorative elements in print */
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  /* Ensure proper spacing in print */
+  .print\\:mt-8 {
+    margin-top: 2rem !important;
+  }
+
+  .print\\:pt-4 {
+    padding-top: 1rem !important;
+  }
+
+  /* Ensure proper borders in print */
+  .print\\:border {
+    border: 1px solid #eaeaea !important;
+  }
+
+  .print\\:border-t {
+    border-top: 1px solid #eaeaea !important;
+  }
+
+  .print\\:border-t-4 {
+    border-top-width: 4px !important;
+  }
+
+  /* Ensure proper text sizes in print */
+  .print\\:text-3xl {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+
+  .print\\:text-xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  /* Ensure proper grid layout in print */
+  .print\\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .print\\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .print\\:gap-4 {
+    gap: 1rem !important;
+  }
+
+  .print\\:gap-6 {
+    gap: 1.5rem !important;
   }
 }

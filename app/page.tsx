@@ -180,7 +180,7 @@ export default function SlideDeck() {
           </div>
 
           <div className="print-footer">
-            <div className="flex justify-between items-center p-4 border-t text-sm text-[#2B2D42]/70">
+            <div className="flex justify-between items-center p-4 border-t text-xs text-[#2B2D42]/70">
               <span>Circle Time Staffing - Bringing reliability back to ECE staffing</span>
               <span>Contact: harris@getcircletime.com</span>
             </div>
