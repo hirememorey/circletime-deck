@@ -1,19 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  /* Combine ALL :root variables here */
   :root {
-    /* V0 Custom Variables */
-    --primary-dark: #4A4A4A; /* Updated */
-    --accent-red: #FF8A8A;   /* Updated */
-    --accent-teal: #8FD3C7;  /* Updated */
-    --accent-yellow: #FFD6A5;/* Updated */
-    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Note: Tailwind won't use this unless configured */
+    /* Custom Variables */
+    --primary-dark: #4A4A4A;
+    --accent-red: #FF8A8A;
+    --accent-teal: #8FD3C7;
+    --accent-yellow: #FFD6A5;
+    --bg-gradient: linear-gradient(135deg, #F9F7F7 0%, #F0F0F0 100%);
+    --border-radius: 31px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
     /* Shadcn/ui HSL Variables (used by tailwind.config.ts) */
     --background: 0 0% 100%;
@@ -22,8 +22,8 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 222.2 47.4% 11.2%; /* Example value - keep yours if different */
-    --primary-foreground: 210 40% 98%; /* Example value - keep yours if different */
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
@@ -38,119 +38,473 @@
     --radius: 0.5rem;
   }
 
-  /* Optional: Define .dark theme variables if needed */
-  /* .dark { ... } */
-
-  /* Base styles using @apply */
   * {
-    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
   }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: "Poppins", sans-serif; /* Moved font-family here */
+    line-height: 1.8;
+    color: var(--primary-dark);
+    background-color: #F9F7F7;
+  }
+}
+
+@layer components {
+  .header {
+    background: white;
+    padding: 1.5rem;
+    border-bottom: none;
+    box-shadow: var(--box-shadow);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nav h1 {
+    font-weight: 500;
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 400;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: var(--accent-teal);
+    color: white;
+  }
+
+  .hero {
+    background: white;
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    color: var(--primary-dark);
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-shadow: none;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent-teal);
+    color: white;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--accent-teal);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .benefit-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    background: white;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .benefit-card h3 {
+    color: var(--accent-teal);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .section-alt {
+    background: #f8f9fa;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 2.5rem 1rem;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-content > div {
+    flex: 1 1 200px;
+    min-width: 150px;
+  }
+
+  footer a {
+    color: var(--accent-yellow);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: var(--accent-teal);
   }
 }
 
 @layer utilities {
-  /* Your custom utilities */
   .text-balance {
     text-wrap: balance;
   }
 }
 
-
-/* Print styles (keep as is) */
+/* Print styles */
 @media print {
   @page {
-    size: letter landscape;
-    margin: 0.5in;
+    size: landscape;
+    margin: 0.75cm;
   }
 
   body {
     background: white !important;
-  }
-
-  .print-container {
-    width: 100%;
-    max-width: 100%;
+    color: black !important;
     margin: 0;
     padding: 0;
+    font-size: 10pt;
   }
 
-  .print-slide {
-    position: relative;
-    height: auto;
-    min-height: 7.5in;
-    padding: 0.5in;
-    break-after: page;
-    page-break-after: always;
-  }
-
-  .print-page-number {
-    position: absolute;
-    bottom: 0.1in;
-    right: 0.1in;
-    font-size: 10px;
-    color: #666;
-  }
-
+  /* Hide non-printable elements */
   .print-header,
-  .print-footer {
-    width: 100%;
-  }
-
-  /* Hide decorative elements in print */
-  .print\\:hidden {
+  .print-footer,
+  .print-page-number,
+  button,
+  .navigation-controls,
+  .print\:hidden {
     display: none !important;
   }
 
-  /* Ensure proper spacing in print */
-  .print\\:mt-8 {
-    margin-top: 2rem !important;
+  .print-container {
+    display: block !important;
+    background: none;
+    width: 100% !important;
+    height: auto !important;
   }
 
-  .print\\:pt-4 {
-    padding-top: 1rem !important;
+  .print-slide {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 95vh !important;
+    min-height: 95vh !important;
+    page-break-before: always;
+    page-break-after: always;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    padding: 0.75cm;
+    margin: 0;
+    border: none;
+    overflow: hidden !important;
+    position: relative !important;
   }
 
-  /* Ensure proper borders in print */
-  .print\\:border {
-    border: 1px solid #eaeaea !important;
+  /* Ensure content takes full width */
+  .print-slide > * {
+    width: 100% !important;
+    max-width: none !important;
   }
 
-  .print\\:border-t {
-    border-top: 1px solid #eaeaea !important;
+  /* Grid layout adjustments */
+  .print-slide .grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 0.6cm !important;
+    height: auto !important;
+    align-items: start;
   }
 
-  .print\\:border-t-4 {
-    border-top-width: 4px !important;
+  /* Card and content box adjustments */
+  .print-slide .bg-white,
+  .print-slide .rounded-xl,
+  .print-slide .shadow-lg {
+    padding: 0.7cm !important;
+    margin-bottom: 0.4cm !important;
   }
 
-  /* Ensure proper text sizes in print */
-  .print\\:text-3xl {
-    font-size: 1.875rem !important;
-    line-height: 2.25rem !important;
+  /* Text container adjustments */
+  .print-slide p,
+  .print-slide ul,
+  .print-slide li {
+    margin: 0 !important;
+    padding: 0.15cm 0 !important;
   }
 
-  .print\\:text-xl {
-    font-size: 1.25rem !important;
-    line-height: 1.75rem !important;
+  /* List spacing adjustments */
+  .print-slide ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25cm !important;
   }
 
-  /* Ensure proper grid layout in print */
-  .print\\:grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr) !important;
+  /* Font size adjustments */
+  .print-slide h1 {
+    font-size: 16pt !important;
+    margin-bottom: 0.5cm !important;
+    line-height: 1.2 !important;
   }
 
-  .print\\:grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr) !important;
+  .print-slide h2 {
+    font-size: 13pt !important;
+    margin-bottom: 0.3cm !important;
+    line-height: 1.2 !important;
   }
 
-  .print\\:gap-4 {
-    gap: 1rem !important;
+  .print-slide h3 {
+    font-size: 11pt !important;
+    margin-bottom: 0.2cm !important;
+    line-height: 1.2 !important;
   }
 
-  .print\\:gap-6 {
-    gap: 1.5rem !important;
+  .print-slide p,
+  .print-slide li {
+    font-size: 10pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Footer text */
+  .print-slide .text-center.text-primary\/60,
+  .print-slide .text-center.text-primary\/70 {
+    font-size: 9pt !important;
+    padding-top: 0.3cm !important;
+    border-top: 1px solid #eee !important;
+    margin-top: auto !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Callout box adjustments */
+  .print-slide .bg-gradient-to-br,
+  .print-slide .bg-destructive\/10,
+  .print-slide .bg-accent\/20,
+  .print-slide .bg-secondary\/10 {
+    padding: 0.4cm !important;
+    margin: 0.25cm 0 !important;
+    border-radius: 0.2cm !important;
+  }
+
+  /* Icon adjustments */
+  .print-slide .h-6 {
+    height: 1.1rem !important;
+    width: 1.1rem !important;
+  }
+
+  .print-slide .h-5 {
+    height: 0.9rem !important;
+    width: 0.9rem !important;
+  }
+
+  /* Spacing adjustments */
+  .print-slide .gap-4 {
+    gap: 0.3cm !important;
+  }
+
+  .print-slide .gap-3 {
+    gap: 0.25cm !important;
+  }
+
+  .print-slide .space-y-6 {
+    margin-top: 0.3cm !important;
+  }
+
+  .print-slide .mb-6 {
+    margin-bottom: 0.3cm !important;
+  }
+
+  .print-slide .mb-4 {
+    margin-bottom: 0.2cm !important;
+  }
+
+  .print-slide .mt-6 {
+    margin-top: 0.3cm !important;
+  }
+
+  /* First slide specific adjustments */
+  .print-slide:first-child .bg-primary {
+    padding: 0.6cm !important;
+    margin-bottom: 0.5cm !important;
+  }
+
+  .print-slide:first-child .border-l-4 {
+    padding: 0.6cm !important;
+  }
+
+  .print-slide:first-child .md\:flex-row {
+    gap: 1.2cm !important;
+  }
+
+  .print-slide:first-child img {
+    margin-bottom: 0.5cm !important;
+  }
+
+  .print-slide:first-child .md\:w-1\/2 {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .print-slide:first-child .bg-secondary\/90 {
+    margin-top: auto;
+    padding: 0.5cm !important;
+  }
+
+  /* Reset height constraints */
+  .h-full,
+  .min-h-screen,
+  .h-screen {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Allow relative positioning */
+  .relative {
+    position: relative !important;
+  }
+
+  /* Image adjustments */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* Flex layout improvements */
+  .print-slide .flex-1 {
+    flex: 1 0 auto !important;
+  }
+
+  .print-slide .md\:flex-row {
+    display: flex !important;
+    gap: 0.75cm !important;
+  }
+
+  /* Two-column layout adjustments */
+  .print-slide .md\:w-1\/2 {
+    width: 48% !important;
+  }
+
+  /* Slide 3 specific adjustments */
+  .print-slide:nth-child(3) .grid {
+    gap: 0.4cm !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+  }
+
+  /* Apply general padding reduction to all cards on slide 3 */
+  .print-slide:nth-child(3) .grid > div > .bg-white {
+    padding: 0.5cm !important;
+    overflow: hidden !important;
+    margin-bottom: 0.3cm !important;
+  }
+  
+  /* Reduce font size in the second column of slide 3 */
+  .print-slide:nth-child(3) .grid > div:nth-child(2) p,
+  .print-slide:nth-child(3) .grid > div:nth-child(2) li {
+    font-size: 9pt !important; /* Further reduction */
+    line-height: 1.15 !important; /* Tighter line height */
+    padding: 0.05cm 0 !important; /* Minimal padding */
+  }
+
+  /* Simplify the Commitment box */
+  .print-slide:nth-child(3) .bg-destructive\/10 {
+    padding: 0 !important; /* Remove padding */
+    border: none !important; /* Remove border */
+    margin-top: 0.2cm !important; /* Add small top margin */
+    background: none !important; /* Remove background */
+    /* Ensure text color is readable */
+    color: black !important; 
+  }
+
+  /* Ensure the icon inside commitment box is hidden or sized down */
+  .print-slide:nth-child(3) .bg-destructive\/10 svg {
+      display: none !important; /* Hide icon */
+  }
+  
+  /* Restore default line height for first column if needed */
+  .print-slide:nth-child(3) .grid > div:nth-child(1) p,
+  .print-slide:nth-child(3) .grid > div:nth-child(1) li {
+     font-size: 10pt !important; /* Original size */
+     line-height: 1.3 !important; /* Original line height */
+     padding: 0.15cm 0 !important; /* Original padding */
+  }
+
+  /* Remove potentially conflicting general rule from previous attempt */
+  .print-slide:nth-child(3) p {
+    /* Remove line-height: 1.2 !important; */
+    /* Remove margin-bottom: 0.1cm !important; */
+  }
+  .print-slide:nth-child(3) li {
+    /* Remove line-height: 1.2 !important; */
+    /* Remove padding: 0.1cm 0 !important; */
+  }
+
+  /* Slide 4 specific adjustments */
+  .print-slide:nth-child(4) {
+    page-break-before: always !important;
   }
 }

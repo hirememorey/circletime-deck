@@ -68,10 +68,7 @@ export default function SlideDeck() {
         {/* Logo and title */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
-            <div className="bg-[#2B2D42] text-white p-2 rounded-lg flex items-center justify-center">
-              <span className="font-bold text-lg">CT</span>
-            </div>
-            <h2 className="text-[#2B2D42] font-semibold hidden sm:block">Circle Time Staffing</h2>
+            <h2 className="text-[#2B2D42] font-semibold hidden sm:block">CIRCLE TIME</h2>
           </div>
 
           <div className="flex items-center gap-2">
@@ -87,7 +84,7 @@ export default function SlideDeck() {
                 </Button>
               )}
               content={() => printRef.current}
-              documentTitle="Circle Time Staffing Presentation"
+              documentTitle="Circle Time Presentation"
               onBeforeGetContent={handlePrintBefore}
               onAfterPrint={handlePrintAfter}
             />
@@ -154,34 +151,35 @@ export default function SlideDeck() {
         <div ref={printRef} className="print-container">
           <div className="print-header">
             <div className="flex items-center gap-2 p-4 border-b">
-              <div className="bg-[#2B2D42] text-white p-2 rounded-lg flex items-center justify-center">
-                <span className="font-bold text-lg">CT</span>
-              </div>
-              <h2 className="text-[#2B2D42] font-semibold">Circle Time Staffing</h2>
+              <h2 className="text-[#2B2D42] font-semibold">CIRCLE TIME</h2>
             </div>
           </div>
 
           {/* All slides for printing */}
           <div className="print-slide">
-            <Slide1 />
-            <div className="print-page-number">1</div>
+            <div className="w-full h-full">
+              <Slide1 />
+            </div>
           </div>
           <div className="print-slide">
-            <Slide2 />
-            <div className="print-page-number">2</div>
+            <div className="w-full h-full">
+              <Slide2 />
+            </div>
           </div>
           <div className="print-slide">
-            <Slide3 />
-            <div className="print-page-number">3</div>
+            <div className="w-full h-full">
+              <Slide3 />
+            </div>
           </div>
           <div className="print-slide">
-            <Slide4 />
-            <div className="print-page-number">4</div>
+            <div className="w-full h-full">
+              <Slide4 />
+            </div>
           </div>
 
           <div className="print-footer">
             <div className="flex justify-between items-center p-4 border-t text-xs text-[#2B2D42]/70">
-              <span>Circle Time Staffing - Bringing reliability back to ECE staffing</span>
+              <span>Circle Time - Bringing reliability back to ECE staffing</span>
               <span>Contact: harris@getcircletime.com</span>
             </div>
           </div>
